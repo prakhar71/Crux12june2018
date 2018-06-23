@@ -60,9 +60,12 @@ public class Stack {
 	}
 
 	public void display() {
+		System.out.println("------------------------");
 		int i;
-		for (i = 0; i < data.length; i++) {
-			System.out.println(data[i]);
+		for (i = this.tos; i >= 0; i--) {
+			System.out.print(data[i] + " ");
 		}
+		System.out.println();
+		System.out.println("------------------------");
 	}
 }

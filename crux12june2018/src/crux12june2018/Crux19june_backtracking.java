@@ -3,21 +3,91 @@ package crux12june2018;
 public class Crux19june_backtracking {
 
 	public static void main(String[] args) {
-		//nqueen(new boolean[4][4], 0, "");
-		
-		int[][] board = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 }, { 5, 2, 0, 0, 0, 0, 0, 0, 0 }, { 0, 8, 7, 0, 0, 0, 0, 3, 1 },
-				{ 0, 0, 3, 0, 1, 0, 0, 8, 0 }, { 9, 0, 0, 8, 6, 3, 0, 0, 5 }, { 0, 5, 0, 0, 9, 0, 6, 0, 0 },
-				{ 1, 3, 0, 0, 0, 0, 2, 5, 0 }, { 0, 0, 0, 0, 0, 0, 0, 7, 4 }, { 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
-		
-		boolean res = sudokuSolver(board, 0, 0);
-		if(res) {
-			display(board);
-		}
-		else {
-			System.out.println("not possible");
-		}
+		// nqueen(new boolean[4][4], 0, "");
+
+		/*
+		 * int[][] board = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 }, { 5, 2, 0, 0, 0, 0, 0, 0, 0
+		 * }, { 0, 8, 7, 0, 0, 0, 0, 3, 1 }, { 0, 0, 3, 0, 1, 0, 0, 8, 0 }, { 9, 0, 0,
+		 * 8, 6, 3, 0, 0, 5 }, { 0, 5, 0, 0, 9, 0, 6, 0, 0 }, { 1, 3, 0, 0, 0, 0, 2, 5,
+		 * 0 }, { 0, 0, 0, 0, 0, 0, 0, 7, 4 }, { 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
+		 * 
+		 * boolean res = sudokuSolver(board, 0, 0); if(res) { display(board); } else {
+		 * System.out.println("not possible"); }
+		 */
+
+		nKnights(new boolean[4][4], 0, 0, "");
+
 	}
-	
+
+	public static void nKnights(boolean[][] board, int row, int col, String ans) {
+
+		if (col >= board[0].length) {
+			nKnights(board, row + 1, 0, ans);
+			return;
+		}
+
+		if (row >= board.length) {
+			System.out.println(ans);
+			return;
+		}
+
+		if (isItSafeNKnights(board, row, col)) {
+
+			board[row][col] = true;
+			nKnights(board, row, col + 1, ans + "{" + row + "," + col + "}");
+		} else {
+			nKnights(board, row, col + 1, ans);
+		}
+
+	}
+
+	public static boolean isItSafeNKnights(boolean board[][], int row, int col) {
+		if ((row + 2) < board.length && (col + 1) < board[0].length)
+			if (board[row + 2][col + 1] == true) {
+				return false;
+			}
+
+		if ((row + 2) < board.length && (col - 1) > 0)
+			if (board[row + 2][col - 1] == true) {
+				return false;
+			}
+
+		if ((row - 2) > 0 && (col - 1) > 0) {
+
+			if (board[row - 2][col - 1] == true) {
+				return false;
+			}
+		}
+
+		if ((row - 2) > 0 && (col + 1) < board[0].length)
+			if (board[row - 2][col + 1] == true) {
+				return false;
+			}
+		// opp
+		if ((row + 1) < board.length && (col + 2) < board[0].length)
+			if (board[row + 1][col + 2] == true) {
+				return false;
+			}
+
+		if ((row - 1) > 0 && (col + 2) < board[0].length)
+			if (board[row - 1][col + 2] == true) {
+				return false;
+			}
+
+		if ((row - 1) > 0 && (col - 2) > 0)
+			if (board[row - 1][col - 2] == true) {
+				return false;
+			}
+
+		if ((row + 1) < board.length && (col - 2) > 0)
+			if (board[row + 1][col - 2] == true) {
+				return false;
+			}
+
+		return true;
+
+	}
+
 	public static void display(int board[][]) {
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[0].length; j++) {
@@ -100,7 +170,6 @@ public class Crux19june_backtracking {
 	}
 
 	public static boolean sudokuSolver(int board[][], int row, int col) {
-
 
 		if (row == board.length) {
 			return true;
