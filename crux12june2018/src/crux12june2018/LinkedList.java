@@ -2,7 +2,7 @@ package crux12june2018;
 
 public class LinkedList {
 
-	private class Node {
+	class Node {
 		int data;
 		Node next;
 	}
@@ -11,9 +11,9 @@ public class LinkedList {
 		Node left;
 	}
 
-	private Node head;
-	private Node tail;
-	private int size;
+	protected Node head;
+	protected Node tail;
+	protected int size;
 
 	public int getFirst() throws Exception {
 
@@ -328,9 +328,68 @@ public class LinkedList {
 			mover.left = temp;
 		}
 		if (count == size / 2) {
-			this.tail = right;//*****
+			this.tail = right;// *****
 			this.tail.next = null;
 		}
+
+	}
+
+	public int mid() {
+
+		Node slow, fast;
+		slow = this.head;
+		fast = this.head;
+
+		while ((fast.next != null) && (fast.next.next != null)) {
+
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+
+		return slow.data;
+	}
+
+	public int kthFromLast(int k) {
+
+		Node slow, fast;
+		slow = this.head;
+		fast = this.head;
+
+		for (int i = 0; i < k - 1; i++) {
+			fast = fast.next;
+		}
+
+		while (fast.next != null) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+
+		return slow.data;
+	}
+
+	public void kReverse(int k) throws Exception {
+
+		LinkedList prev = null;
+		while (this.size != 0) {
+
+			LinkedList curr = new LinkedList();
+			for (int i = 1; i <= k; i++) {
+				curr.addFirst(this.removeFirst());
+			}
+
+			if (prev == null) {
+				prev = curr;
+			} else {
+				prev.tail.next = curr.head;
+				prev.tail = curr.tail;
+				prev.size = prev.size + curr.size;
+			}
+
+		}
+
+		this.size = prev.size;
+		this.head = prev.head;
+		this.tail = prev.tail;
 
 	}
 

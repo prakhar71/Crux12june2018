@@ -22,8 +22,19 @@ public class StackClient {
 //			System.out.println(val + " ");
 //		}
 		
-		int a[] = {100,5,2,20,7,3,9};
-		nextGreater(a);
+//		int a[] = {100,5,2,20,7,3,9};
+//		nextGreater(a);
+		
+		Stack s= new DynamicStack();
+		s.push(10);
+		s.push(20);
+		s.push(30);
+		s.push(40);
+		s.push(50);
+		s.push(60);
+		
+		s.display();
+		
 
 	}
 

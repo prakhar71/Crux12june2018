@@ -5,13 +5,14 @@ public class LLClient {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
-		DemoLL LL = new DemoLL();
+		LinkedList LL = new LinkedList();
 		LL.addLast(10);
 		LL.addLast(20);
 		LL.addLast(30);
 		LL.addLast(40);
 		LL.addLast(50);
-		LL.addAt(45, 2);
+		LL.addLast(60);
+		
 		
 //		LL.display();
 //		LL.reversePointers();
@@ -31,5 +32,10 @@ public class LLClient {
 //		
 //		LL.addAt(3, 45);
 //		LL.display();
+		
+		//LL.kReverse(3);
+		//System.out.println(LL.kthFromLast(2));
+		
+		
 	}
 }

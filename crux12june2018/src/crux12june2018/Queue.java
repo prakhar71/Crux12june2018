@@ -45,9 +45,9 @@ public class Queue {
 	 * System.out.print(a[i] + " ,"); } System.out.println(rear); }
 	 */
 
-	private int[] data;
-	private int front;
-	private int size;
+	protected int[] data;
+	protected int front;
+	protected int size;
 
 	public Queue(int cap) {
 
