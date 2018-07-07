@@ -9,10 +9,11 @@ public class BTClient {
 	// 10 true 20 true 30 false false false false
 	public static void main(String[] args) {
 
-		int []pre = {100,5,3,7,20,15,25,22,30,40};
-		int []in = {3,5,7,100,15,20,22,25,30,40};
+		int []pre = {10,5,3,7,20,15,25,22,30,40};
+		int []in = {3,5,7,10,15,20,22,25,30,40};
 		
 		BinaryTreeDemo bt = new BinaryTreeDemo(pre,in);
-		bt.biggestBST();
+		//bt.biggestBST();
+		//bt.printInRange(3,15);
 	}
 }

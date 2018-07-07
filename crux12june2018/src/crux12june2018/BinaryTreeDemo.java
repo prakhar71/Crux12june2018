@@ -39,6 +39,10 @@ public class BinaryTreeDemo {
 
 	private void printInRange(Node node, int sidx, int eidx) {
 
+		if(node == null) {
+			return;
+		}
+		
 		if (sidx > node.data) { // correct
 			printInRange(node.right, sidx, eidx);
 		} else if (sidx < node.data) {
@@ -58,7 +62,7 @@ public class BinaryTreeDemo {
 		}
 	}
 
-	private class Node {
+	public class Node {
 		int data;
 		Node left;
 		Node right;
@@ -221,6 +225,10 @@ public class BinaryTreeDemo {
 	private boolean isBalanced(Node node) {
 
 		boolean lftbal, rtbal;
+		
+		if(node == null ) {
+			return true;
+		}
 
 		int lh = this.ht(node.left);
 		int rh = this.ht(node.right);

@@ -237,6 +237,8 @@ public class BinarySearchTree {
 		
 		replaceWithSum(node.left, mover);
 		
+		return;
+		
 	}
 	
 	
