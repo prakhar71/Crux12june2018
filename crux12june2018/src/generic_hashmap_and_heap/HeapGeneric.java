@@ -75,4 +75,22 @@ public class HeapGeneric<T extends Comparable<T>> {
 		return t.compareTo(o);
 	}
 
+	public boolean isEmpty() {
+
+		return this.data.size() == 0;
+	}
+
+	public void updatePriority(T Pair) {
+		int idx = -1;
+		for (int i = 0; i < this.data.size(); i++) {
+
+			if (this.data.get(i) == Pair) {
+				idx = i;
+			}
+		}
+
+		upheapify(idx);
+
+	}
+
 }

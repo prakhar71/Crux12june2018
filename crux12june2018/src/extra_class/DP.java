@@ -638,7 +638,7 @@ public class DP {
 
 	}
 
-	public static int name(int[] prices, int n) {
+	public static int rodcutBU(int[] prices, int n) {
 
 		int strg[] = new int[prices.length];
 
@@ -821,4 +821,44 @@ public static int palindromePartitionTD(String str,int si,int ei,int[][] strg) {
 		strg[si][ei] = min;
 		return min;
 	}
+
+public static int  palindromePBU(String s) {
+	
+	
+	int[][] strg = new int [s.length()][s.length()];
+	int n = s.length();
+	
+	for(int slide = 1;slide <n;slide++) {
+		for(int si = 0;si<=n-slide-1;si++) {
+			int ei = si+slide;
+			
+			int min = Integer.MAX_VALUE;
+			
+			if (isPalindrome(s, si, ei)) {
+				min = 0;
+			}
+
+
+			for (int k = si; k <= ei - 1; k++) {
+
+				int fp = strg[si][k];
+
+				int sp =strg[k+1][ei];
+
+				int sum = fp + sp + 1;
+
+				if (sum < min) {
+					min = sum;
+				}
+
+			}
+
+			strg[si][ei] = min;
+			
+			
+		}
+	}
+	
+	return strg[0][n-1];
+}
 }
