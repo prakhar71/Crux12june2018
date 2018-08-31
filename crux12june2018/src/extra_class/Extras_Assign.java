@@ -14,13 +14,16 @@ public class Extras_Assign {
 
 //		int[][] a = { { 1, 2, -1, -4, -20 }, { -8, -3, 4, 2, 1 }, { 3, 8, 10, 1, 3 }, { -4, -1, 1, 7, -6 } };
 //		System.out.println(kadanesAlgo2D(a));
-		
-		int arr[] = { 10, 20, 60, 50, 30, 40 };
-		  
+		int ans=0;
+		double arr[] = { 7.48, 6.67, 5.39, 7.04};
+		for(int i=0;i<arr.length;i++) {
+			ans += (arr[i]-0.75)*10;
+		}
+		  System.out.println(ans/4);
 	    // Calculate size of array.
-	    int n = arr.length;
-	        int k = 3;
-	 System.out.println(painterProb(k, arr, n));
+//	    int n = arr.length;
+//	        int k = 3;
+//	 System.out.println(painterProb(k, arr, n));
 	}
 
 	public static int[] uglyNos(int n) {

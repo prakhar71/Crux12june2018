@@ -5,17 +5,18 @@ public class Crux19june_backtracking {
 	public static void main(String[] args) {
 		// nqueen(new boolean[4][4], 0, "");
 
-		/*
-		 * int[][] board = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 }, { 5, 2, 0, 0, 0, 0, 0, 0, 0
-		 * }, { 0, 8, 7, 0, 0, 0, 0, 3, 1 }, { 0, 0, 3, 0, 1, 0, 0, 8, 0 }, { 9, 0, 0,
-		 * 8, 6, 3, 0, 0, 5 }, { 0, 5, 0, 0, 9, 0, 6, 0, 0 }, { 1, 3, 0, 0, 0, 0, 2, 5,
-		 * 0 }, { 0, 0, 0, 0, 0, 0, 0, 7, 4 }, { 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
-		 * 
-		 * boolean res = sudokuSolver(board, 0, 0); if(res) { display(board); } else {
-		 * System.out.println("not possible"); }
-		 */
+		int[][] board = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 }, { 5, 2, 0, 0, 0, 0, 0, 0, 0 }, { 0, 8, 7, 0, 0, 0, 0, 3, 1 },
+				{ 0, 0, 3, 0, 1, 0, 0, 8, 0 }, { 9, 0, 0, 8, 6, 3, 0, 0, 5 }, { 0, 5, 0, 0, 9, 0, 6, 0, 0 },
+				{ 1, 3, 0, 0, 0, 0, 2, 5, 0 }, { 0, 0, 0, 0, 0, 0, 0, 7, 4 }, { 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
 
-		nKnights(new boolean[4][4], 0, 0, "");
+		boolean res = sudokuSolver(board, 0, 0);
+		if (res) {
+			display(board);
+		} else {
+			System.out.println("not possible");
+		}
+
+//		nKnights(new boolean[4][4], 0, 0, "");
 
 	}
 
